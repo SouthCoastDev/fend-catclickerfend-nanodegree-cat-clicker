@@ -86,15 +86,15 @@
     </section>
 
     <div class='cat-image-container'>
-        <div class='cat-card'>
-            <h4>Cat1Name</h4>
-            <p>You have clicked me <span  class='cat1-counter'>0</span> times!</p>
+        <div class='cat-card' id='cat1'>
+            <h4 id='cat-name1'>Cat1Name</h4>
+            <p>You have clicked me <span id='cat1-counter'>0</span> times!</p>
             <img src='img/cat.jpg'>
         </div>
 
-        <div class='cat-card'>
-            <h4>Cat2Name</h4>
-            <p>You have clicked me <span  class='cat2-counter'>0</span> times!</p>
+        <div class='cat-card' id='cat2'>
+            <h4 id='cat-name2'>Cat2Name</h4>
+            <p>You have clicked me <span  id='cat2-counter'>0</span> times!</p>
             <img src='img/cat-in-bag.jpg'>
         </div>
 
@@ -103,15 +103,44 @@
 
 
 <script>
-    const counterText = document.getElementById('click-counter');
-    const catImage = document.querySelector('.cat-image-container');
+
+    let cat1Name = 'Arnold';
+    let cat2Name = 'Aled';
+
+        document.getElementById('cat-name1').innerHTML = cat1Name;
+        document.getElementById('cat-name2').innerHTML = cat2Name;
+
+
+
+    let overallCounterText = document.getElementById('click-counter');
+    let cat1CounterText = document.getElementById('cat1-counter');
+    let cat2CounterText = document.getElementById('cat2-counter');
+
+    const catImage1 = document.getElementById('cat1');
+    const catImage2 = document.getElementById('cat2');
+
+    let cat1Counter = 0;
+    let cat2Counter = 0;
     let imageClickCounter = 0;
 
-    catImage.addEventListener('click',function(e){
+    catImage1.addEventListener('click',function(e){
         e.preventDefault();
         imageClickCounter++;
-        counterText.innerText = imageClickCounter;
+        cat1Counter++;
+        overallCounterText.innerText = imageClickCounter;
+        cat1CounterText.innerText = cat1Counter;
     },false);
+
+   catImage2.addEventListener('click',function(e){
+        e.preventDefault();
+        imageClickCounter++;
+        cat2Counter++;
+        overallCounterText.innerText = imageClickCounter;
+        cat2CounterText.innerText = cat2Counter;
+    },false);
+
+
+
 
 
 </script>
