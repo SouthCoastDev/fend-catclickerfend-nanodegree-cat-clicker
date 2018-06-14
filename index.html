@@ -7,14 +7,44 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type="text/css">
+
+    /* @media (max-width: 700px) {
+      .container {
+        grid-template-areas:
+          "content    content     content"
+          "sidebar-1  sidebar-1   sidebar-2"
+          "footer     footer      footer"
+      }
+    } */
+
     body {
+        display: grid;
+      grid-gap: 20px;
+      grid-template-columns: 1fr 10fr 1fr;
+      grid-template-rows: 100px 150px 400px;
+      grid-template-areas:
+        " . title   ."
+        ".     counter  ."
+        " .  cat-image   .";
         background-color: #f0f0f2;
         margin: 0;
         padding: 0;
         font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-
     }
+
+    .title {
+      grid-area: title;
+    }
+    .counter {
+      grid-area: counter;
+    }
+
     .cat-image-container {
+        grid-area: cat-image;
+        display:flex;
+        align-content: center;
+        align-self: center;
+        align-items: center;
         width: 600px;
         margin: 5em auto;
         padding: 25px;
@@ -29,7 +59,10 @@
 </head>
 
 <body>
-    <header><h1>Welome to Cat Clicker!</h1></header>
+    <header class='title'><h1>Welome to Cat Clicker!</h1></header>
+    <section class='counter'>
+        <div><h3>You Have Clicked:<span id='click-counter'>0</span> times! Well done!</h3></div>
+    </section>
     <div class='cat-image-container'>
         <img src='img/cat.jpg'>
     </div>
