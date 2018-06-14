@@ -65,12 +65,28 @@
 </head>
 
 <body>
-    <header class='title'><h1>Welome to Cat Clicker!</h1></header>
+    <header class='title'><h1>Welcome to Cat Clicker!</h1></header>
     <section class='counter'>
-        <div><h3>You Have Clicked:<span id='click-counter'>0</span> times! Well done!</h3></div>
+        <div><h3>You Have Clicked: <span id='click-counter'>0</span> times! Well done!</h3></div>
     </section>
     <div class='cat-image-container'>
         <img src='img/cat.jpg'>
     </div>
+
+
+<script>
+    const counterText = document.getElementById('click-counter');
+    const catImage = document.querySelector('.cat-image-container');
+    let imageClickCounter = 0;
+
+    catImage.addEventListener('click',function(e){
+        e.preventDefault();
+        imageClickCounter++;
+        counterText.innerText = imageClickCounter;
+    },false);
+
+
+</script>
+
 </body>
 </html>
