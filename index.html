@@ -20,12 +20,12 @@
     body {
         display: grid;
       grid-gap: 20px;
-      grid-template-columns: 1fr 10fr 1fr;
-      grid-template-rows: 100px 150px 400px;
+      grid-template-columns: auto auto auto;
+      grid-template-rows: auto auto auto;
       grid-template-areas:
         " . title   ."
         ".     counter  ."
-        " .  cat-image   .";
+        " cat-image  cat-image   cat-image";
         background-color: #f0f0f2;
         margin: 0;
         padding: 0;
@@ -35,12 +35,12 @@
     .title {
       grid-area: title;
       align-self: center;
-  justify-self: center;
+     justify-self: center;
     }
     .counter {
       grid-area: counter;
       align-self: center;
-  justify-self: center;
+      justify-self: center;
     }
 
     .cat-image-container {
@@ -48,10 +48,13 @@
         align-self: center;
         justify-self: center;
         display:flex;
+        flex-direction: row;
         align-content: center;
         align-self: center;
         align-items: center;
-        width: 600px;
+
+        justify-content: center;
+        width: 1200px;
         margin: 5em auto;
         padding: 25px;
         background-color: #fff;
@@ -59,19 +62,44 @@
     }
 
     .cat-image-container img{
-        width:100%;
+        margin:20px;
+        width:550px;
+        height:400px;
     }
+
+    .cat-card{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    }
+
     </style>
 </head>
 
 <body>
+
     <header class='title'><h1>Welcome to Cat Clicker!</h1></header>
+
     <section class='counter'>
         <div><h3>You Have Clicked: <span id='click-counter'>0</span> times! Well done!</h3></div>
     </section>
+
     <div class='cat-image-container'>
-        <img src='img/cat.jpg'>
+        <div class='cat-card'>
+            <h4>Cat1Name</h4>
+            <p>You have clicked me <span  class='cat1-counter'>0</span> times!</p>
+            <img src='img/cat.jpg'>
+        </div>
+
+        <div class='cat-card'>
+            <h4>Cat2Name</h4>
+            <p>You have clicked me <span  class='cat2-counter'>0</span> times!</p>
+            <img src='img/cat-in-bag.jpg'>
+        </div>
+
     </div>
+
 
 
 <script>
